@@ -8,6 +8,9 @@ import java.util.Locale;
 
 /**
  * Created by steffen on 5/21/16.
+ *
+ * The parent class for all print jobs.
+ *
  */
 public abstract class Job {
     private int pages;
@@ -27,12 +30,12 @@ public abstract class Job {
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();
-        output.append("Job{\n");
-        output.append("pages=" + pages + "\n");
-        output.append("colorPages=" + colorPages + "\n");
-        output.append("isDoubleSided=" + isDoubleSided + "\n");
-        output.append("cost=" + getCostAsString() + "\n");
-        output.append("}\n");
+        output.append("\t\tJob {\n");
+        output.append("\t\t\tpages = " + pages + "\n");
+        output.append("\t\t\tcolorPages = " + colorPages + "\n");
+        output.append("\t\t\tisDoubleSided = " + isDoubleSided + "\n");
+        output.append("\t\t\tcost = " + getCostAsString() + "\n");
+        output.append("\t\t}\n");
         return output.toString();
     }
 

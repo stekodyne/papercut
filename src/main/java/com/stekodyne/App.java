@@ -5,6 +5,8 @@ import com.stekodyne.queue.Queue;
 
 /**
  * Papercut App
+ *
+ * mvn clean test compile exec:java -Dexec.mainClass="com.stekodyne.App"
  */
 public class App {
     static Config config;

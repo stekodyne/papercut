@@ -5,6 +5,9 @@ import com.stekodyne.job.Job;
 
 /**
  * Created by steffen on 5/21/16.
+ *
+ * Class to represent an A4 printer job.
+ *
  */
 public class A4 extends Job {
 

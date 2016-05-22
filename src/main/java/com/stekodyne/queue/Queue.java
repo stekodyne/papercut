@@ -12,6 +12,9 @@ import java.util.Locale;
 
 /**
  * Created by steffen on 5/21/16.
+ *
+ * Print job process class and basic reporting.
+ *
  */
 public class Queue {
     private ArrayList<Job> jobs;
@@ -23,15 +26,15 @@ public class Queue {
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();
-        output.append("Queue{\n");
-        output.append("file=" + file + "\n");
-        output.append("config=" + config + "\n");
-        output.append("cost=" + getCostAsString() + "\n");
-        output.append("jobs={\n");
+        output.append("Queue {\n");
+        output.append("\tfile = " + file + "\n");
+        output.append("\tconfig = " + config + "\n");
+        output.append("\tcost = " + getCostAsString() + "\n");
+        output.append("\tjobs = {\n");
         for( Job job : jobs) {
             output.append(job.toString());
         }
-        output.append("}}\n");
+        output.append("\t}\n}\n");
         return output.toString();
     }
 
@@ -43,7 +46,7 @@ public class Queue {
         process();
     }
 
-    public void process() {
+    private void process() {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file));

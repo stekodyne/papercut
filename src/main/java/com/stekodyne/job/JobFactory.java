@@ -6,6 +6,8 @@ import com.stekodyne.job.impl.A4;
 
 /**
  * Created by steffen on 5/21/16.
+ *
+ * This class would be extend to allow for different print jobs.
  */
 public class JobFactory {
     public static Job getJob(Config config, Paper paper, int pages, int colorPages, boolean isDoubleSided) {

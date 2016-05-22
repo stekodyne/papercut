@@ -9,6 +9,12 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 
 /**
  * Created by steffen on 5/21/16.
+ *
+ * Proxy class used to interface with Apache Commons Configurations.
+ *
+ * TODO: I would look to extend this using Google's Guice for DI and create a ConfigService instead of passing
+ * the config around.
+ *
  */
 public class Config {
     private Configuration config = null;
