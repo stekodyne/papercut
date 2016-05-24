@@ -36,10 +36,6 @@ public class Config {
         }
     }
 
-    public int getInt(String property) {
-       return config.getInt(property);
-    }
-
     public double getDouble(String property) {
         return config.getDouble(property);
     }

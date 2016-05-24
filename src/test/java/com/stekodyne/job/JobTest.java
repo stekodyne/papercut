@@ -10,11 +10,8 @@ import java.math.BigDecimal;
  * Created by steffen on 5/22/16.
  */
 public class JobTest extends TestCase {
-    private Config config;
+    private final Config config = new Config();
 
-    public JobTest() {
-        this.config = new Config();
-    }
     public void testGetCost() throws Exception {
         Job job = new A4(config, 10, 5, true);
         assertEquals(new BigDecimal(1.50).setScale(2, BigDecimal.ROUND_HALF_UP), job.getCost());

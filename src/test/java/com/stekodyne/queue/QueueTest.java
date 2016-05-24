@@ -7,13 +7,9 @@ import junit.framework.TestCase;
  * Created by steffen on 5/22/16.
  */
 public class QueueTest extends TestCase {
-    private Config config;
-
-    public QueueTest() {
-        this.config = new Config();
-    }
 
     public void testGetCostAsString() throws Exception {
+        Config config = new Config();
         Queue queue = new Queue(config);
         assertEquals("$64.10", queue.getCostAsString());
     }

@@ -13,13 +13,13 @@ import java.util.Locale;
  *
  */
 public abstract class Job {
-    private int pages;
-    private int colorPages;
-    private boolean isDoubleSided;
+    private final int pages;
+    private final int colorPages;
+    private final boolean isDoubleSided;
     private BigDecimal cost;
-    private Config config;
+    private final Config config;
 
-    public Job(Config config, int pages, int colorPages, boolean isDoubleSided) {
+    protected Job(Config config, int pages, int colorPages, boolean isDoubleSided) {
         this.pages = pages;
         this.colorPages = colorPages;
         this.isDoubleSided = isDoubleSided;
@@ -29,19 +29,17 @@ public abstract class Job {
 
     @Override
     public String toString() {
-        StringBuilder output = new StringBuilder();
-        output.append("\t\tJob {\n");
-        output.append("\t\t\tpages = " + pages + "\n");
-        output.append("\t\t\tcolorPages = " + colorPages + "\n");
-        output.append("\t\t\tisDoubleSided = " + isDoubleSided + "\n");
-        output.append("\t\t\tcost = " + getCostAsString() + "\n");
-        output.append("\t\t}\n");
-        return output.toString();
+        return "\t\tJob {\n" +
+                "\t\t\tpages = " + pages + "\n" +
+                "\t\t\tcolorPages = " + colorPages + "\n" +
+                "\t\t\tisDoubleSided = " + isDoubleSided + "\n" +
+                "\t\t\tcost = " + getCostAsString() + "\n" +
+                "\t\t}\n";
     }
 
     private void calculateCost() {
-        double color = 0;
-        double bw = 0;
+        double color;
+        double bw;
         if(isDoubleSided) {
             color = config.getDouble(Constants.A4_COLOR_DOUBLE);
             bw = config.getDouble(Constants.A4_BW_DOUBLE);

@@ -4,6 +4,7 @@ import com.stekodyne.Constants;
 import com.stekodyne.config.Config;
 import com.stekodyne.job.Job;
 import com.stekodyne.job.JobFactory;
+
 import java.io.*;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -12,26 +13,25 @@ import java.util.Locale;
 
 /**
  * Created by steffen on 5/21/16.
- *
+ * <p>
  * Print job process class and basic reporting.
- *
  */
 public class Queue {
-    private ArrayList<Job> jobs;
-    private String file;
+    private final ArrayList<Job> jobs;
+    private final String file;
     private BigDecimal cost;
 
-    private Config config;
+    private final Config config;
 
     @Override
     public String toString() {
-        StringBuilder output = new StringBuilder();
-        output.append("Queue {\n");
-        output.append("\tfile = " + file + "\n");
-        output.append("\tconfig = " + config + "\n");
-        output.append("\tcost = " + getCostAsString() + "\n");
-        output.append("\tjobs = {\n");
-        for( Job job : jobs) {
+        StringBuilder output = new StringBuilder()
+                .append("Queue {\n")
+                .append("\tfile = ").append(file).append("\n")
+                .append("\tconfig = ").append(config).append("\n")
+                .append("\tcost = ").append(getCostAsString()).append("\n")
+                .append("\tjobs = {\n");
+        for (Job job : jobs) {
             output.append(job.toString());
         }
         output.append("\t}\n}\n");
@@ -50,7 +50,7 @@ public class Queue {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file));
-            String line = "";
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] printJob = line.split(",");
                 Job job = JobFactory.getJob(config, Constants.Paper.A4, Integer.parseInt(printJob[0].trim()), Integer.parseInt(printJob[1].trim()), Boolean.parseBoolean(printJob[2].trim()));
